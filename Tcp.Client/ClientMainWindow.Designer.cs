@@ -33,6 +33,10 @@
             this.textBox = new System.Windows.Forms.TextBox();
             this.labelRes = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.sendFileBtn = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // sendMsgBtn
@@ -66,11 +70,37 @@
             // 
             this.timer.Tick += new System.EventHandler(this.OnTimerTick);
             // 
+            // sendFileBtn
+            // 
+            this.sendFileBtn.Location = new System.Drawing.Point(263, 245);
+            this.sendFileBtn.Name = "sendFileBtn";
+            this.sendFileBtn.Size = new System.Drawing.Size(147, 23);
+            this.sendFileBtn.TabIndex = 3;
+            this.sendFileBtn.Text = "Send file";
+            this.sendFileBtn.UseVisualStyleBackColor = true;
+            this.sendFileBtn.Click += new System.EventHandler(this.sendFile_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // backgroundWorker2
+            // 
+            this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
+            this.backgroundWorker2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker2_RunWorkerCompleted);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk_1);
+            // 
             // ClientMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 260);
+            this.ClientSize = new System.Drawing.Size(445, 282);
+            this.Controls.Add(this.sendFileBtn);
             this.Controls.Add(this.labelRes);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.sendMsgBtn);
@@ -79,6 +109,7 @@
             this.MinimizeBox = false;
             this.Name = "ClientMainWindow";
             this.Text = "Client application";
+            this.Load += new System.EventHandler(this.ClientMainWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,6 +121,10 @@
         private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.Label labelRes;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button sendFileBtn;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

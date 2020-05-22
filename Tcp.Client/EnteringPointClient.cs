@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SomeProject.TcpClient
@@ -11,6 +12,7 @@ namespace SomeProject.TcpClient
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ClientMainWindow());
+           
         }
     }
 }
